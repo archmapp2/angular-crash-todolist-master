@@ -1,0 +1,17 @@
+<form class="content" (ngSubmit)="onSubmit()">
+  <div class="field has-addons">
+    <div class="control is-expanded">
+      <input
+        type="text"
+        name="title"
+        class="input is-large"
+         [(ngModel)]="title"
+        placeholder="Add Todo ..."
+        aria-label="submit ..."
+      />
+    </div>
+    <div class="control">
+      <button type="submit" class="button is-large is-primary">Submit</button>
+    </div>
+  </div>
+</form>

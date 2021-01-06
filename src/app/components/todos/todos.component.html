@@ -1,0 +1,72 @@
+<article class="panel is-info mt-3">
+  <p class="panel-heading">Todo 追加</p>
+  <form class="content" (ngSubmit)="onSubmit($event)">
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input
+          type="text"
+          name="title"
+          class="input is-medium"
+          [(ngModel)]="title"
+          placeholder="Add Todo ..."
+          aria-label="submit ..."
+        />
+      </div>
+      <div class="control">
+        <button
+          type="submit"
+          class="button is-medium has-background-primary-light has-text-primary-dark"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <h2 class="subtitle has-background-primary has-text-weight-bold has-text-centered py-3 mb-0">Bulma notification</h2>
+  <div *ngFor="let todo of todos">
+    <div class="notification">
+      <button (click)="deleteTodo(todo)" class="delete"></button>
+      <span (click)="toggleStrike($event)">{{ todo.title }}</span>
+    </div>
+  </div>
+  <hr />
+
+  <h2 class="subtitle has-background-grey-light has-text-weight-bold has-text-centered py-3 mb-0">no Bulma</h2>
+  <h2 class="subtitle has-text-weight-bold has-text-centered"></h2>
+  <div *ngFor="let todo of todos">
+    <div [ngClass]="setClasses(todo)">
+      <p>
+        <input
+          (change)="onToggle(todo)"
+          type="checkbox"
+          id="{{ todo.id }}"
+          [checked]="todo.completed"
+        />&nbsp;
+        <button (click)="onDelete(todo)" class="del">X</button>
+        <span>
+          {{ todo.title }}
+        </span>
+      </p>
+    </div>
+  </div>
+  <!--  
+    http://honttoni.blog74.fc2.com/blog-entry-280.html
+    <div style="clear:left; margin:0; padding:0"></div>
+   -->
+</article>
+
+<!-- <form>
+      <div class="field">
+        <input
+          type="checkbox"
+          (change)="onToggle(todo)"
+          id="{{ todo.id }}"
+          [checked]="todo.completed"
+          class="is-checkradio"
+          id="chkEx"
+          name="chkEx"
+        />
+        <label for="chkEx">&nbsp;</label>
+      </div>
+    </form> -->

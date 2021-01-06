@@ -1,0 +1,13 @@
+// https://kana-kanade.hatenablog.com/entry/2018/04/08/184750
+
+
+Versions of @angular/compiler-cli and typescript could not be determined.
+
+
+npm install --dev
+npm start
+http://localhost:4200/
+
+  install Usage of the --dev option is deprecated. Use --only=dev instead.
+  npm install --only=dev
+
